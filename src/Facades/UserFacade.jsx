@@ -2,6 +2,7 @@
 import apiFacade from "./apiFacade";
 import SERVER_URL from "../constant";
 import { useState } from "react";
+import { findByTestId } from "@testing-library/react";
 const URL = SERVER_URL;
 
 const getAllWashers = (test) => {
@@ -21,6 +22,12 @@ const getAllBookings = (username, test) => {
 const createWasher = (body) => {
   const options = makeOptions("POST", body);
   return fetch(URL + "/api/user/addwasher", options)
+  .then(res => handleHttpErrors(res))
+}
+
+const createBooking = (body) => {
+  const options = makeOptions("POST", body);
+  return fetch(URL + "/api/user/addbooking", options)
   .then(res => handleHttpErrors(res))
 }
 
@@ -91,7 +98,8 @@ const userFacade = {
   getAllWashers,
   getAllBookings,
   getUsername,
-  createWasher
+  createWasher,
+  createBooking
 };
 
 export default userFacade;

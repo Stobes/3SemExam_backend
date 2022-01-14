@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import userFacade from "../Facades/UserFacade";
 import apiFacade from "../Facades/apiFacade";
 import CreateWasher from "./CreateWasher";
+import CreateBooking from "./CreateBooking";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -28,6 +29,8 @@ const Profile = () => {
       <GetAllBookings />
       <br/>
       <CreateWasher />
+      <br/>
+      <CreateBooking />
 
     </div>
     </Container>
